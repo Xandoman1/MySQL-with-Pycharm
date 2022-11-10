@@ -1,0 +1,24 @@
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host='localhost',
+    user='root',
+    password='SUA SENHA',
+    port='3306',
+    database='nome',
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute('SELECT * FROM usuarios')
+
+usuarios = mycursor.fetchall()
+
+for usuario in usuarios: 
+    print(usuario)
+    print('Id: ' + str(usuario[0]))
+    print('Nome: ' + usuario[1])
+    print('Sobrenome: ' + usuario[2])
+    print('E-mail: ' + usuario[3])
+    print('Telefone: ' + usuario[4])
+    print('CPF: ' + usuario[5])
